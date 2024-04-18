@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="login.js" defer></script>
+</head>
+<body class="bg-cover bg-center bg-fixed bg-no-repeat" style="background-image: url('./img/background.png')">
+
+    <header class="p-5">
+        <img class="h-16" src="./img/logo.png" alt="">
+    </header>
+
+    <main class="h-2/5 grid place-items-center gap-10">
+        
+        <h1 class="text-white text-4xl font-bold">LOGIN / CMS</h1>
+
+        <div class="h-96 w-2/5 bg-gray-300  grid place-items-center opacity-40"></div>
+
+        <div class="absolute grid gap-8 pt-20">
+            
+
+            <div class="input-container flex gap-7 border border-white-300 w-96 h-10 place-items-center rounded-lg">
+                <i class="fas fa-envelope color-white fa-inverse pl-5"></i> 
+                <input class="bg-transparent outline-none text-sm" type="email" placeholder="E-mail" name="email" required>
+              </div>
+
+              <div class="input-container flex gap-7 border border-white-300 w-full h-10 place-items-center rounded-lg">
+                <i class="fas fa-lock fa-inverse pl-5"></i> 
+                <input  class="bg-transparent  outline-none text-sm" type="password" placeholder="Senha" name="senha" required>
+                 
+              </div>
+
+              <div class="grid gap-10">
+                <span class="text-white text-sm grid place-end">Esqueceu a senha?</span>
+              
+              <div class="flex gap-10 justify-center">
+
+                <a href="#" class="login-btn bg-gray-300 h-10 w-4/12 rounded-lg flex justify-center place-items-center">
+                    ENTRAR
+                  </a>
+
+    
+                  <a href="./conta.html" class="bg-gray-300 h-10 w-4/12 rounded-lg flex justify-center place-items-center">
+                    CRIAR CONTA
+                  </a>
+
+              </div>
+              
+
+            </div>
+        </div>
+
+    </main>
+</body>
