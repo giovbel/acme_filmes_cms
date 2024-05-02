@@ -17,10 +17,13 @@
 
     <main class=" h-full w-full flex items-center justify-center pb-20">
 
-        <div class="h-5/6 w-5/6 bg-[#DCDBDB] border-2 border-white-300">
-            <h1>Add Filme</h1>
+        <div class="h-4/5 w-3/5 bg-[#DCDBDB] border-2 border-white-300 flex items-center justify-center pl-10 gap-20">
 
-            <div>
+
+            <div class="grid gap-10">
+                
+                    
+            <h1 class="text-5xl text-[#3D00A1]">Add Filme</h1>
 
                 <div class="grid">
                     <span>Nome do filme:</span>
@@ -31,8 +34,6 @@
                     <span>Gênero:</span>
                 <input class="outline-none w-80 border border-gray-500" type="text">
                 </div>
-
-            </div>
             
             <div class="flex gap-5">
                 
@@ -50,10 +51,66 @@
             
             <div class="grid">
                 <span>Elenco:</span>
-            <textarea name="" id="" cols="30" rows="10" class="outline-none w-80 h-32 border border-gray-500"></textarea>
+            <textarea name="" id="" cols="30" rows="10" class="outline-none w-80 h-20 border border-gray-500"></textarea>
             </div>
 
         </div>
+
+        <div class="grid gap-8 pt-20">
+            
+            <div class="flex gap-5">
+                
+                <div class="grid">
+                    <span>Data de lançamento:</span>
+                <input class="outline-none w-32 border border-gray-500" type="text">
+                </div>
+            
+
+                <div class="grid">
+                    <span>Data de relançamento:</span>
+                <input class="outline-none w-32 border border-gray-500" type="text">
+                </div>
+            </div>
+    
+                <div class="grid">
+                    <span>Sinopse:</span>
+                <textarea name="" id="" cols="30" rows="10" class="outline-none w-80 h-32 border border-gray-500"></textarea>
+                </div>
+
+                <div class="grid">
+                    <span>Diretor(res):</span>
+                <textarea name="" id="" cols="30" rows="10" class="outline-none w-80 h-20 border border-gray-500"></textarea>
+                </div>
+            
+        </div>
+
+        <div class="grid gap-5 pt-16">
+
+            <div class="h-48 w-40 bg-[#AFAFAF] border border-gray-900"></div>
+
+            <div class="grid gap-5">
+                
+                <div class="grid">
+                    <span>URL CAPA:</span>
+                <input class="outline-none w-32 border border-gray-500" type="text">
+                </div>
+            
+
+                <div class="grid">
+                    <span>URL PLANO DE FUNDO:</span>
+                <input class="outline-none w-32 border border-gray-500" type="text">
+                </div>
+            </div>
+
+            <button class="h-10 w-32 bg-[#13002B] text-white rounded-md">
+                Criar
+            </button>
+
+        </div>
+
+
+            </div>
+            
 
 
     </main>
