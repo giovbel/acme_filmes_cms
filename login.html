@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="login.js" defer></script>
+  <script src="login.js" type = "module" defer></script>
 </head>
 <body class="bg-cover bg-center bg-fixed bg-no-repeat" style="background-image: url('./img/background.png')">
 
@@ -24,12 +24,12 @@
 
             <div class="input-container flex gap-7 border border-white-300 w-96 h-10 place-items-center rounded-lg">
                 <i class="fas fa-envelope color-white fa-inverse pl-5"></i> 
-                <input class="bg-transparent outline-none text-sm" type="email" placeholder="E-mail" name="email" required>
+                <input id="email" class="bg-transparent outline-none text-sm" type="email" placeholder="E-mail" name="email" required>
               </div>
 
               <div class="input-container flex gap-7 border border-white-300 w-full h-10 place-items-center rounded-lg">
                 <i class="fas fa-lock fa-inverse pl-5"></i> 
-                <input  class="bg-transparent  outline-none text-sm" type="password" placeholder="Senha" name="senha" required>
+                <input id="senha" class="bg-transparent  outline-none text-sm" type="password" placeholder="Senha" name="senha" required>
                  
               </div>
 
@@ -38,13 +38,8 @@
               
               <div class="flex gap-10 justify-center">
 
-                <a href="#" class="login-btn bg-gray-300 h-10 w-4/12 rounded-lg flex justify-center place-items-center">
+                <a href="#" id="entrar" class="login-btn bg-gray-300 h-10 w-4/12 rounded-lg flex justify-center place-items-center">
                     ENTRAR
-                  </a>
-
-    
-                  <a href="./conta.html" class="bg-gray-300 h-10 w-4/12 rounded-lg flex justify-center place-items-center">
-                    CRIAR CONTA
                   </a>
 
               </div>
