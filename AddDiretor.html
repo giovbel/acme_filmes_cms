@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./js/addDiretor.js" defer type="module"></script>
     <title>CMS</title>
 </head>
     <body class="overflow-hidden h-screen w-screen bg-cover bg-center bg-fixed bg-no-repeat" style="background-image: url('./img/background.png')">
 
         <header class="flex justify-between p-5 h-18 items-center ">
-            <a href="./home.html">
+            <a href="./diretor.html">
                 <img src="./img/Vector (1).png" alt="">
             </a>
             <img src="./img/logo.png" alt="">
@@ -23,21 +24,21 @@
                 <div class="grid gap-10">
                     
                         
-                <h1 class="text-5xl text-[#3D00A1]">Add Diretor</h1>
+                <h1 class="text-5xl text-[#3D00A1]">Add diretor</h1>
     
                     <div class="grid">
-                        <span>Nome do Diretor:</span>
-                    <input class="outline-none w-80 border border-gray-500" type="text">
+                        <span>Nome do diretor:</span>
+                    <input id="nome" class="outline-none w-80 border border-gray-500" type="text">
                     </div>
         
                     <div class="grid">
                         <span>Nome Artístico:</span>
-                    <input class="outline-none w-80 border border-gray-500" type="text">
+                    <input id="nomeArtistico" class="outline-none w-80 border border-gray-500" type="text">
                     </div>
 
                     <div class="grid">
                         <span>Nacionalidade:</span>
-                    <input class="outline-none w-80 border border-gray-500" type="text">
+                    <select id="nacionalidade" class="outline-none w-80 border border-gray-500"></select>
                     </div>
                 
             </div>
@@ -48,19 +49,19 @@
                     
                     <div class="grid">
                         <span>Data de Nascimento:</span>
-                    <input class="outline-none w-32 border border-gray-500" type="text">
+                    <input id="data_nascimento" class="outline-none w-32 border border-gray-500" type="text">
                     </div>
                 
     
                     <div class="grid">
                         <span>Data de Falecimento:</span>
-                    <input class="outline-none w-32 border border-gray-500" type="text">
+                    <input id="data_falecimento" class="outline-none w-32 border border-gray-500" type="text">
                     </div>
                 </div>
         
                     <div class="grid">
                         <span>Biografia:</span>
-                    <textarea name="" id="" cols="30" rows="10" class="outline-none w-80 h-32 border border-gray-500"></textarea>
+                    <textarea name="" id="biografia" cols="30" rows="10" class="outline-none w-80 h-32 border border-gray-500"></textarea>
                     </div>
                 
             </div>
@@ -73,13 +74,13 @@
                     
                     <div class="grid">
                         <span>URL FOTO:</span>
-                    <input class="outline-none w-32 border border-gray-500" type="text">
+                    <input id="foto" class="outline-none w-32 border border-gray-500" type="text">
                     </div>
                 
     
                 </div>
     
-                <button class="h-10 w-32 bg-[#13002B] text-white rounded-md">
+                <button id="criar" class="h-10 w-32 bg-[#13002B] text-white rounded-md">
                     Criar
                 </button>
     

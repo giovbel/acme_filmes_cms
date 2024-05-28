@@ -4,6 +4,30 @@ import { deletarAtor, listarAtores } from "./endpoints.js"
 
 const container = document.getElementById('containerAtor')
 
+const pesquisarAtores = async (atores) =>{
+    const searchInput = document.getElementById('barra-pesquisa')
+  
+    searchInput.onkeyup = function(){
+
+    let valorInput = searchInput.value
+    
+        if(valorInput.length){
+            atores.forEach(ator => {
+            if(ator.nome.toLowerCase().includes(valorInput.toLowerCase()) && valorInput != "" ){
+                container.innerHTML = '';
+                criarAtor(ator)
+            }
+        })
+        }else{
+            container.innerHTML = '';
+            carregarAtores()
+        }      
+
+}
+}
+
+
+
 async function criarAtor(ator) {
 
     const containerAtor = document.createElement('div')
@@ -78,3 +102,4 @@ async function carregarAtores() {
 }
 
 await carregarAtores()
+await pesquisarAtores()

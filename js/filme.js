@@ -4,6 +4,30 @@ import { listarFilmes, deletarFilme } from "./endpoints.js"
 
 const container = document.getElementById('containerFilmes')
 
+
+const pesquisarFilmes = async (filmes) =>{
+
+    const searchInput = document.getElementById('barra-pesquisa')
+  
+    searchInput.onkeyup = function(){
+
+    let valorInput = searchInput.value
+    
+        if(valorInput.length){
+            filmes.forEach(filme => {
+            if(filme.nome.toLowerCase().includes(valorInput.toLowerCase()) && valorInput != "" ){
+                container.innerHTML = '';
+                criarFilme(filme)
+            }
+        })
+        }else{
+            container.innerHTML = '';
+            carregarFilmes()
+        }      
+
+}
+
+}
 async function criarFilme(filme) {
     const containerFilme = document.createElement('div')
     containerFilme.classList.add('h-10','flex', 'justify-between', 'text-white', 'pl-10', 'pr-10')
@@ -82,3 +106,4 @@ async function carregarFilmes() {
 }
 
 await carregarFilmes()
+await pesquisarFilmes(await listarFilmes())

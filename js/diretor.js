@@ -2,7 +2,7 @@
 
 import { deletarDiretor, listarDiretores } from "./endpoints.js"
 
-const container = document.getElementById('containerDiretor')
+const container = document.getElementById('container')
 
 async function criarDiretor(diretor) {
 
