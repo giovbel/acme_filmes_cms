@@ -9,7 +9,7 @@ async function logar() {
     const funcionarios = await listarFuncionarios()
     funcionarios.forEach(funcionario => {
         if(funcionario.email == email.value && funcionario.senha == senha.value){
-            window.location.assign('home.html')
+            window.location.assign('../home.html')
         }
     })
 }

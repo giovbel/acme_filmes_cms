@@ -43,14 +43,14 @@ async function criarFilme(filme) {
     botoes.classList.add('flex', 'gap-3')
 
     const editar = document.createElement('a')
-    editar.href = './editFilme.html'
+    editar.href = '../editFilme.html'
     editar.addEventListener('click', () => {
         localStorage.setItem('idFilme', filme.id)
     })
     editar.classList.add('font-bold', 'text-black', 'flex', 'bg-[#D9D9D9]', 'w-20', 'h-8', 'items-center', 'rounded-md', 'justify-center')
 
     const imgEditar =  document.createElement('img')
-    imgEditar.src = './img/tabler_edit.png'
+    imgEditar.src = '../img/tabler_edit.png'
 
     editar.appendChild(imgEditar)
     editar.textContent = 'Editar'
@@ -59,7 +59,7 @@ async function criarFilme(filme) {
     excluir.classList.add('bg-[#E75858]', 'h-8', 'w-8', 'justify-center', 'flex', 'items-center', 'rounded-md')
 
     const imgExcluir =  document.createElement('img')
-    imgExcluir.src = './img/pajamas_remove.png'
+    imgExcluir.src = '../img/pajamas_remove.png'
 
     excluir.appendChild(imgExcluir)
     excluir.addEventListener('click', () => {

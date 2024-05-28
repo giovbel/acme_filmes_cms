@@ -24,7 +24,7 @@ async function criarFilme() {
     "valor_unitario": valor_unitario.value,
     "classificacao_id": await classificacaoEscolhida(),
     "genero_id": await generoEscolhido(),
-    "nacionalidade_id": await classificacaoEscolhida(),
+    "nacionalidade_id": await nacionalidadeEscolhida(),
     "ator": await elencoEscolhido(),
     "diretor": await diretorEscolhido()}
 
@@ -131,6 +131,17 @@ async function diretorEscolhido() {
     diretores.forEach( diretor => {
         if(diretor.selected){
             ids.push(Number(diretor.value))
+        }
+    })
+    return ids
+}
+
+async function nacionalidadeEscolhida() {
+    const nacionalidades = nacionalidadeSelect.querySelectorAll('option')
+    let ids = [] 
+    nacionalidades.forEach( nacionalidade => {
+        if(nacionalidade.selected){
+            ids.push(Number(nacionalidade.value))
         }
     })
     return ids

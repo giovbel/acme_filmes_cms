@@ -1,11 +1,11 @@
 'use strict'
 
-import { listarFilmeId, listarClassificacoes, listarDiretores, listarAtores, listarGeneros, listarNacionalidade } from "./endpoints.js"
+import { listarFilmeId, listarClassificacoes, listarDiretores, listarAtores, listarGeneros, listarNacionalidade, atualizarFilme } from "./endpoints.js"
 
 const id = localStorage.getItem('idFilme')
 const filme = await listarFilmeId(id)
 
-const botaoCriar = document.getElementById('criar')
+const botaoAtualizar = document.getElementById('criar')
 
     const titulo = document.getElementById("titulo")
     const valor_unitario = document.getElementById("preco")
@@ -14,6 +14,7 @@ const botaoCriar = document.getElementById('criar')
     const data_relancamento = document.getElementById("data_relancamento")
     const sinopse = document.getElementById("sinopse")
     const capa = document.getElementById("capa")
+    const divCapa = document.getElementById("fotoCapa")
 
     const generoSelect = document.getElementById("genero")
     const classificacaoSelect = document.getElementById("classificacao")
@@ -23,46 +24,77 @@ const botaoCriar = document.getElementById('criar')
     
     async function preencherClassificacao() {
         const classificacoes = await listarClassificacoes()
-        console.log(classificacoes)
         classificacoes.forEach(classificacao => {
             const option = document.createElement('option')
             option.textContent = classificacao.nome
             option.value = classificacao.id
+
+            if(classificacao.id == filme.classificacao_id){
+                option.selected = true
+            }
+
             classificacaoSelect.appendChild(option)
         });
     }
     
     async function preencherGenero() {
         const generos = await listarGeneros()
-        console.log(generos)
         generos.forEach(genero => {
             const option = document.createElement('option')
             option.textContent = genero.nome
             option.value = genero.id
+
+            if(genero.id == filme.genero_id){
+                option.selected = true
+            }
+
             generoSelect.appendChild(option)
         });
     }
     
     async function preencherNacionalidade() {
         const nacionalidades = await listarNacionalidade()
-        console.log(nacionalidades)
         nacionalidades.forEach(nacionalidade => {
             const option = document.createElement('option')
             option.textContent = nacionalidade.gentilico
             option.value = nacionalidade.id
+
+            if(nacionalidade.id == filme.nacionalidade_id){
+                option.selected = true
+            }
+
             nacionalidadeSelect.appendChild(option)
         });
     }
     
+    const arrayAtores = [] 
+    const arrayDiretores = [] 
+
+    filme.elenco.forEach(ator => {
+        arrayAtores.push(ator.id)
+    })
+
+    filme.diretores.forEach(diretor => {
+        arrayDiretores.push(diretor.id)
+    })
+
+
     async function preencherElenco() {
         const atores = await listarAtores()
         atores.forEach(ator => {
             const option = document.createElement('option')
             option.textContent = ator.nome
             option.value = ator.id
+
+            if(arrayAtores.includes(ator.id)){
+                option.selected = true
+            }
+
             elencoSelect.appendChild(option)
         });
     }
+
+
     
     async function preencherDiretores() {
         const diretores = await listarDiretores()
@@ -70,6 +102,12 @@ const botaoCriar = document.getElementById('criar')
             const option = document.createElement('option')
             option.textContent = diretor.nome
             option.value = diretor.id
+
+            
+            if(arrayDiretores.includes(diretor.id)){
+                option.selected = true
+            }
+
             diretorSelect.appendChild(option)
         });
     }
@@ -118,28 +156,56 @@ const botaoCriar = document.getElementById('criar')
         return ids
     }
 
-    async function preencherFilme() {
+    async function nacionalidadeEscolhida() {
+        const nacionalidades = nacionalidadeSelect.querySelectorAll('option')
+        let ids = [] 
+        nacionalidades.forEach( nacionalidade => {
+            if(nacionalidade.selected){
+                ids.push(Number(nacionalidade.value))
+            }
+        })
+        return ids
+    }
+    
 
-        console.log(filme)
+    async function preencherFilme() {
 
         titulo.value = filme.nome
         valor_unitario.value = filme.valor_unitario
-        duracao.value = filme.duracao
-        data_lancamento.value = filme.data_lancamento
+        duracao.value = filme.duracao.split('T')[1].split('.')[0]
+        data_lancamento.value = filme.data_lancamento.split('T')[0]
         data_relancamento.value = filme.data_relancamento
         sinopse.value = filme.sinopse
-        capa.value = filme.capa
+        capa.value = filme.foto_capa
+        divCapa.style.backgroundImage = `url('${capa.value}')`
     }
 
+    async function alterarFilme() {
+        const filmeAlterado = {
+            "nome": titulo.value,
+            "sinopse": sinopse.value,
+            "duracao": duracao.value,
+            "data_lancamento": data_lancamento.value,
+            "data_relancamento": data_relancamento.value,
+            "foto_capa": capa.value,
+            "valor_unitario": valor_unitario.value,
+            "classificacao_id": await classificacaoEscolhida(),
+            "genero_id": await generoEscolhido(),
+            "nacionalidade_id": await nacionalidadeEscolhida()
+        }
+
+
+        await atualizarFilme(filmeAlterado, id)
+        window.location.reload()
+    }
+ 
     
     
-    //botaoCriar.addEventListener('click', criarFilme)
+    botaoAtualizar.addEventListener('click', alterarFilme)
     
     preencherGenero()
     preencherClassificacao()
     preencherElenco()
     preencherNacionalidade()
     preencherDiretores()
-
-   
     preencherFilme()

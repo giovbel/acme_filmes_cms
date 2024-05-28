@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="./js/addAtor.js" defer type="module"></script>
+    <script src="./js/editAtor.js" defer type="module"></script>
+    
     <title>CMS</title>
 </head>
     <body class="overflow-hidden h-screen w-screen bg-cover bg-center bg-fixed bg-no-repeat" style="background-image: url('./img/background.png')">
@@ -24,7 +25,7 @@
                 <div class="grid gap-10">
                     
                         
-                <h1 class="text-5xl text-[#3D00A1]">Add Ator</h1>
+                <h1 class="text-5xl text-[#3D00A1]">Edit Ator</h1>
     
                     <div class="grid">
                         <span>Nome do Ator:</span>
@@ -68,7 +69,7 @@
     
             <div class="grid gap-5 pt-16">
     
-                <div class="h-48 w-40 bg-[#AFAFAF] border border-gray-900"></div>
+                <div id="divFoto" class="h-48 w-40 bg-[#AFAFAF] border border-gray-900 bg-center bg-contain bg-no-repeat"></div>
     
                 <div class="grid gap-5">
                     
@@ -81,7 +82,7 @@
                 </div>
     
                 <button id="criar" class="h-10 w-32 bg-[#13002B] text-white rounded-md">
-                    Criar
+                    Atualizar
                 </button>
     
             </div>
