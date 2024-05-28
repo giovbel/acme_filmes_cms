@@ -15,6 +15,7 @@ const botaoAtualizar = document.getElementById('criar')
     const sinopse = document.getElementById("sinopse")
     const capa = document.getElementById("capa")
     const divCapa = document.getElementById("fotoCapa")
+    const fundo = document.getElementById("fundo")
 
     const generoSelect = document.getElementById("genero")
     const classificacaoSelect = document.getElementById("classificacao")
@@ -177,6 +178,7 @@ const botaoAtualizar = document.getElementById('criar')
         data_relancamento.value = filme.data_relancamento
         sinopse.value = filme.sinopse
         capa.value = filme.foto_capa
+        fundo.value = filme.foto_fundo
         divCapa.style.backgroundImage = `url('${capa.value}')`
     }
 
@@ -188,6 +190,7 @@ const botaoAtualizar = document.getElementById('criar')
             "data_lancamento": data_lancamento.value,
             "data_relancamento": data_relancamento.value,
             "foto_capa": capa.value,
+            "foto_fundo": fundo.value,
             "valor_unitario": valor_unitario.value,
             "classificacao_id": await classificacaoEscolhida(),
             "genero_id": await generoEscolhido(),

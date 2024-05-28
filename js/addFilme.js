@@ -13,6 +13,7 @@ async function criarFilme() {
     const data_relancamento = document.getElementById("data_relancamento")
     const sinopse = document.getElementById("sinopse")
     const capa = document.getElementById("capa")
+    const fundo = document.getElementById("fundo")
 
     const novoFilme = {    
     "nome": titulo.value,
@@ -21,6 +22,7 @@ async function criarFilme() {
     "data_lancamento": data_lancamento.value,
     "data_relancamento": data_relancamento.value,
     "foto_capa": capa.value,
+    "foto_fundo": fundo.value,
     "valor_unitario": valor_unitario.value,
     "classificacao_id": await classificacaoEscolhida(),
     "genero_id": await generoEscolhido(),

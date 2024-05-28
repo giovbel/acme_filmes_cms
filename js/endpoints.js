@@ -105,7 +105,7 @@ export async function listarDiretores () {
     return data.diretores
 } 
 
-export async function listarAtorId (id) {
+export async function listarDiretorId (id) {
     const url = 'http://localhost:8080/v2/AcmeFilmes/diretor/'+ id
     const response = await fetch(url)
     const data = await response.json()
@@ -141,7 +141,7 @@ export async function atualizarDiretor (diretor, id){
 }
 
 
-export async function deletarAtor (id) {
+export async function deletarDiretor (id) {
     const url = `http://localhost:8080/v2/AcmeFilmes/diretor/${id}`
     const options = {
         method: 'DELETE'
